@@ -6,39 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>淘宝网触屏版</title>
-  <script>
-    // REM init
-    function remInit() {
-      var dpr = window.devicePixelRatio || 1
-      var docEl = document.documentElement
-      var clientWidth = docEl.clientWidth
-
-      if (clientWidth > 540) {
-        clientWidth = 540
-      }
-      // mtaobao官方最宽540 
-      var dprs = [2, 3]
-      var metaEl = document.querySelector('meta[name="viewport"]')
-      dpr = !dprs.indexOf(dpr) ? dpr : 1
-      // dpr = dprs.some(function(elem){ return elem === dpr}) ? dpr : 1 
-      var scale = 1 / dpr
-      // dpr控制在已有样式中，
-      
-      metaEl.setAttribute('content', 'width=' + clientWidth / scale + ',initial-scale=' + scale + ',maximum-scale=' + scale + ',minimum-scale=' + scale + ',user-scalable=no')
-      // 缩放
-      
-      var remEl = document.createElement('style')
-      var rem = clientWidth / 10 * dpr
-      // rem基准为10
-      
-      remEl.innerHTML = 'html{font-size:' + rem + 'px!important;'
-      docEl.firstElementChild.appendChild(remEl)
-      docEl.setAttribute('data-dpr', dpr)
-      // css hack
-    }
-    remInit()
-    // window.addEventListener('resize',function(){remInit()})
-  </script>
+  <script src="./js/rem.js"></script>
 </head>
 
 <body>
