@@ -1,8 +1,10 @@
 // REM init
+var docHTML
 !function(){
   function remInit() {
     var dpr = window.devicePixelRatio || 1
     var docEl = document.documentElement
+    docHTML = docEl
     var clientWidth = docEl.clientWidth
 
     var dprs = [2, 3]
@@ -22,6 +24,7 @@
     remEl.innerHTML = 'html{font-size:' + rem + 'px!important;'
     docEl.firstElementChild.appendChild(remEl)
     docEl.setAttribute('data-dpr', dpr)
+    docEl.setAttribute('style','width: 100%;height: 100%;overflow: hidden;')
     // css hack
   }
   remInit()
